@@ -19,6 +19,8 @@
 [Calendar](https://calendar.google.com/calendar/u/0?cid=aXZoMmU3NjhzMjRkdGlxZWYwcXZvbzhxcjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 ## Product Backlog
+[Requirements Discovery](https://docs.google.com/document/d/11WJM5q5BGNw5DgDeh-6P3DNNSVYQIoYQ537yncLYQ7c/edit)
+
 [Product Backlog](https://docs.google.com/spreadsheets/d/1YcQlA28-sgJiNI1AeED96XEVGxHPCzNIi8yX0uRgipM/edit#gid=8)
 
 ## Architecture & Design
