@@ -24,7 +24,7 @@
 [Product Backlog](https://docs.google.com/spreadsheets/d/1YcQlA28-sgJiNI1AeED96XEVGxHPCzNIi8yX0uRgipM/edit#gid=8)
 
 ## Architecture & Design
-[Architecture & Design]()
+[Architecture & Design](https://docs.google.com/document/d/10W9F337w7815P5wGcsTzHUmXeY1snYyyqu7D4wo1PgY/edit)
 
 ## Process
 
@@ -50,6 +50,7 @@
 * [Sprint retrospective]()
 
 ## Tools & APIs
+<a href="https://discord.com"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/625e5fcef7ab80b8c1fe559e_Discord-Logo-Color.png"  width="50" height="50"> <a href="https://developer.android.com/studio"><img src="https://1.bp.blogspot.com/-LgTa-xDiknI/X4EflN56boI/AAAAAAAAPuk/24YyKnqiGkwRS9-_9suPKkfsAwO4wHYEgCLcBGAsYHQ/s0/image9.png"  width="50" height="50"> <a href="https://www.google.com/drive/"><img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Drive.max-1100x1100.png"  width="50" height="50"> <a href="https://github.com"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"  width="50" height="50">
 
 ## Final delivery
 
