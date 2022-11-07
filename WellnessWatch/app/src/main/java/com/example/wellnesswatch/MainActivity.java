@@ -7,6 +7,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ActivityManager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.wellnesswatch.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView =findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.startWorkout);
 
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.history:
@@ -40,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -47,5 +60,19 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch(id) {
+            case R.id.settingsmenu:
+                //Switch to settings activity on click...
+                break;
+        }
+        return true;
+
     }
 }
