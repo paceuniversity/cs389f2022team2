@@ -71,7 +71,6 @@ public class StartWorkoutFragment extends Fragment {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.frameLayout, new WorkoutFragment());
                 fr.commit();
-
             }
         });
         return view;
