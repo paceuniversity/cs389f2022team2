@@ -87,7 +87,7 @@ public class HistoricalFragment extends Fragment {
             }
         });
         Button btn2 = (Button) view.findViewById(R.id.recallButton);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
