@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.wellnesswatch.databinding.ActivityMainBinding;
@@ -18,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
+
     ActivityMainBinding binding;
 
 
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new StartWorkoutFragment());
         BottomNavigationView bottomNavigationView =findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.startWorkout);
+
+
 
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
