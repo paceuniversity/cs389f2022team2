@@ -13,6 +13,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        this.getSupportActionBar().hide();
 
         Button login = (Button) findViewById(R.id.signupButton);
         login.setOnClickListener(new View.OnClickListener() {
