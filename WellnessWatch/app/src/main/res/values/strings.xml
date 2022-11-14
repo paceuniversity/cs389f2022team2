@@ -7,8 +7,8 @@
     <string name="historicalText">TextView</string>
     <string name="button">Button</string>
     <string name="displayWorkout">Workout Completed</string>
-    <string name="recallButton">Past Workouts</string>
-    <string name="allWorkoutsButton">See All Workouts</string>
+    <string name="recallButton">Exercises</string>
+    <string name="allWorkoutsButton">Recall a Workout</string>
     <string name="recallWelcome">Forget to log a workout? Recall it here!</string>
     <string name="recallText">Type workout here</string>
     <string name="recallEnter">Submit</string>

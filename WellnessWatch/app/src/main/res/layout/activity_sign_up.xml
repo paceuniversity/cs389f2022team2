@@ -118,19 +118,20 @@
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="312dp"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/edit_text"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="312dp"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,12 +139,13 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.602" />
+        app:layout_constraintVertical_bias="0.602"
+        android:background="@drawable/edit_text"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName6"
         android:layout_width="312dp"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,12 +153,13 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.913" />
+        app:layout_constraintVertical_bias="0.913"
+        android:background="@drawable/edit_text"/>
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="312dp"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -164,12 +167,13 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.809" />
+        app:layout_constraintVertical_bias="0.809"
+        android:background="@drawable/edit_text"/>
 
     <EditText
         android:id="@+id/editTextTextPassword2"
         android:layout_width="312dp"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:ems="10"
         android:inputType="textPhonetic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -177,7 +181,8 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        app:layout_constraintVertical_bias="0.704"
+        android:background="@drawable/edit_text"/>
 
     <Button
         android:id="@+id/signupButton"

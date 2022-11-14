@@ -113,7 +113,8 @@
             app:layout_constraintHorizontal_bias="0.416"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.478" />
+            app:layout_constraintVertical_bias="0.478"
+            android:background="@drawable/edit_text"/>
 
         <EditText
             android:id="@+id/editTextNumberSigned2"
@@ -126,7 +127,8 @@
             app:layout_constraintHorizontal_bias="0.93"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.478" />
+            app:layout_constraintVertical_bias="0.478"
+            android:background="@drawable/edit_text"/>
 
         <TextView
             android:id="@+id/date"
