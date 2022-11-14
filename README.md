@@ -32,8 +32,8 @@
 
 * [Sprint planning](https://docs.google.com/document/d/1Eq1ZTaaRqTfoMJ6NEFxzC6Ahb_g3HCPaO3oJ6_6iD8o/edit)
 * [Scrums](https://docs.google.com/document/d/1Epnxpe9ukBIUdBYMKkFbY7Nc5Qub5cjNTT7mHU3I1bY/edit)
-* [Sprint demo video]()
-* [Sprint retrospective]()
+* [Sprint demo video](https://www.youtube.com/watch?v=9zNa1nhTsGk)
+* [Sprint retrospective](https://docs.google.com/document/d/1x5AR94A183_p1jHDKCTZk6GjMaO4MqQ-t7ffmkO9urw/edit)
 
 ### Sprint 2
 
