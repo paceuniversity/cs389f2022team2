@@ -37,7 +37,7 @@
 
 ### Sprint 2
 
-* [Sprint planning]()
+* [Sprint planning](https://docs.google.com/document/d/193Z9FoHCVgegK_vcaLws5VVj_EJRbnFpJTkrOy22Si4/edit)
 * [Scrums]()
 * [Sprint demo video]()
 * [Sprint retrospective]()
