@@ -74,7 +74,7 @@ public class HistoricalFragment extends Fragment {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                textView.setText(month + "/" + dayOfMonth + "/" + year);
+                textView.setText(month+1 + "/" + dayOfMonth + "/" + year);
             }
         });
         Button btn = (Button) view.findViewById(R.id.allWorkoutsButton);
