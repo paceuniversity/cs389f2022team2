@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/endWorkout"
             android:layout_width="350dp"
             android:layout_height="108dp"
             android:backgroundTint="#4AD5C2C2"

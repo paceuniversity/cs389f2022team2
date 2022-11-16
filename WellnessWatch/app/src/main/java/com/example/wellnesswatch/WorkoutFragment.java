@@ -6,21 +6,28 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Queue;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +40,7 @@ public class WorkoutFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -81,8 +89,17 @@ public class WorkoutFragment extends Fragment {
         date.setText(date_n);
 
         // Get the widgets reference from XML layout
-        Spinner spinner = view.findViewById(R.id.spinner);
-        Spinner spinner2 = view.findViewById(R.id.spinner2);
+        Spinner selectWorkout = view.findViewById(R.id.selectWorkout);
+        Spinner selectType = view.findViewById(R.id.selectType);
+        EditText setsText = view.findViewById(R.id.setAmount);
+        EditText amountText = view.findViewById(R.id.inputAmount);
+        EditText lbs = view.findViewById(R.id.lbsAmount);
+        TextView ofText = view.findViewById(R.id.ofText);
+        Button addWorkout = (Button) view.findViewById(R.id.addWorkout);
+        Button endWorkout = (Button) view.findViewById(R.id.endWorkout);
+        TextView displayWorkout = (TextView) view.findViewById(R.id.displayWorkout);
+        StringBuilder sb = new StringBuilder();
+        Queue<WorkoutObject> workout = new LinkedList<>();
 
         //Need to refactor how this works...
 
@@ -93,7 +110,10 @@ public class WorkoutFragment extends Fragment {
         };
         String[] options = new String[]{
                 "Select",
-                "Reps"
+                "Minutes",
+                "Seconds",
+                "Reps",
+                "Sets"
         };
 
 
@@ -179,7 +199,7 @@ public class WorkoutFragment extends Fragment {
 
 
         // Spinner on item selected listener
-        spinner.setOnItemSelectedListener(
+        selectWorkout.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
 
                     @Override
@@ -210,7 +230,7 @@ public class WorkoutFragment extends Fragment {
                     }
                 });
 
-        spinner2.setOnItemSelectedListener(
+        selectType.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
 
                     @Override
@@ -232,6 +252,20 @@ public class WorkoutFragment extends Fragment {
                                     "Selected : "
                                             + selectedItemText,
                                     Toast.LENGTH_SHORT).show();
+                        }
+
+                        if(selectedItemText.equals("Sets")) {
+                            lbs.setX(lbs.getX()+180);
+                            selectType.setX(selectType.getX()-50);
+                            setsText.setVisibility(View.VISIBLE);
+                            ofText.setVisibility(View.VISIBLE);
+                        }else{
+                            if(setsText.getVisibility()==View.VISIBLE) {
+                                setsText.setVisibility(View.GONE);
+                                ofText.setVisibility(View.GONE);
+                                lbs.setX(lbs.getX()-180);
+                                selectType.setX(selectType.getX()+50);
+                            }
                         }
                     }
 
@@ -243,8 +277,33 @@ public class WorkoutFragment extends Fragment {
 
 
         // Finally, data bind the spinner object with adapter
-        spinner.setAdapter(spinnerArrayAdapter);
-        spinner2.setAdapter(spinnerArrayAdapter2);
+        selectWorkout.setAdapter(spinnerArrayAdapter);
+        selectType.setAdapter(spinnerArrayAdapter2);
+
+
+
+        addWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                WorkoutObject ob = new WorkoutObject(selectWorkout.getSelectedItem().toString(),amountText.getText().toString(), selectType.getSelectedItem().toString());
+                workout.add(ob);
+                sb.append(ob.toString()+"\n");
+                //sb.append(selectWorkout.getSelectedItem()+ ", "+amountText.getText()+ " "+selectType.getSelectedItem() + ", "+lbs.getText()+"lbs \n");
+                displayWorkout.setText(sb.toString());
+                Log.d("QUEUE",workout.toString());
+
+            }
+        });
+
+        endWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayWorkout.setText(workout.toString());
+            }
+        });
+
         return view;
     }
 }
