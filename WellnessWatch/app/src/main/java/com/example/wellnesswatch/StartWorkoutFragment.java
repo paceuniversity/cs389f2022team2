@@ -87,7 +87,7 @@ public class StartWorkoutFragment extends Fragment {
         //welcome.setText(firebaseUser.getUid());
         reference= FirebaseDatabase.getInstance().getReference();
 
-        reference.child("Users").child(fireBaseAuth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+      /*  reference.child("Users").child(fireBaseAuth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if(task.isSuccessful()) {
@@ -95,6 +95,8 @@ public class StartWorkoutFragment extends Fragment {
                 }
             }
         });
+
+       */
 
         // Inflate the layout for this fragment
         Button btn = (Button) view.findViewById(R.id.startWorkoutButton);

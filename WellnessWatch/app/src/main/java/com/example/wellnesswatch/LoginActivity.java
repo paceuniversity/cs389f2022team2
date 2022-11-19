@@ -63,8 +63,6 @@ public class LoginActivity extends AppCompatActivity {
     private void LogInUser() {
         String email = inputEmail.getText().toString();
         String password = inputPassword.getText().toString();
-
-
         if (email.isEmpty() || !isValidEmail(email)) {
             inputEmail.setError("Please enter a valid email.");
         } else if (password.isEmpty()) {

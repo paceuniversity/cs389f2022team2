@@ -118,6 +118,21 @@
             app:layout_constraintVertical_bias="0.402" />
 
         <EditText
+            android:id="@+id/inputWorkoutText"
+            android:layout_width="162dp"
+            android:layout_height="32dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:hint="Enter Workout"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.253"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.397" />
+
+        <EditText
             android:id="@+id/lbsAmount"
             android:layout_width="53dp"
             android:layout_height="40dp"

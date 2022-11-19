@@ -35,7 +35,7 @@ public class WorkoutObject {
     //Need to test
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.exercise + ", "+ this.amount + " "+this.type);
+        sb.append(this.exercise + " - "+ this.amount + " "+this.type);
         if(this.repAmount ==0) {
             sb.append(" "+this.lbs+ " lbs");
         }else{
