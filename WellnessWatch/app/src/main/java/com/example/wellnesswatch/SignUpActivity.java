@@ -95,6 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             initExerciseList();
+                                            setGoalsState();
                                             Toast.makeText(SignUpActivity.this, "User has been registered", Toast.LENGTH_LONG).show();
                                             progressDialog.dismiss();
                                             sendUserToNextActivity();
@@ -124,6 +125,17 @@ public class SignUpActivity extends AppCompatActivity {
         Log.wtf("init", "init");
         List<String> defaultList = Arrays.asList("Select", "Add New");
         FirebaseDatabase.getInstance().getReference().child("Exercises").child(mUser.getUid()).child("ExerciseList").setValue(defaultList).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.wtf("init", "init2");
+                Log.d("FIREBASE", "ADDED");
+            }
+        });
+
+    }
+
+    private void setGoalsState() {
+        FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).child("setgoals").setValue("false").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.wtf("init", "init2");
