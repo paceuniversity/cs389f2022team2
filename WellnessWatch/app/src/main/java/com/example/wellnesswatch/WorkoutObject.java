@@ -36,11 +36,10 @@ public class WorkoutObject {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.exercise + " - "+ this.amount + " "+this.type);
-        if(this.repAmount ==0) {
+        if(this.lbs !=0)
             sb.append(" "+this.lbs+ " lbs");
-        }else{
-            sb.append(" of"+this.repAmount+", "+this.lbs+" lbs");
-        }
+        if(this.repAmount!= 0)
+            sb.append(" of "+this.repAmount+", "+this.lbs+" lbs");
         return sb.toString();
     }
 }
