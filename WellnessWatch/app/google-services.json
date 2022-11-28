@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "663405580059",
+    "project_id": "wellnesswatch-d4d83",
+    "storage_bucket": "wellnesswatch-d4d83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663405580059:android:d16f20bb34a2cfc9e6cdbe",
+        "android_client_info": {
+          "package_name": "com.example.wellnesswatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663405580059-ah5epdivvoipc3ujtu33vf420aj3nmsp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsuikGTqnGLxSqVP5RuiUz5Vx5seyihRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663405580059-ah5epdivvoipc3ujtu33vf420aj3nmsp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

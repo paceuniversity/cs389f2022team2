@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.343" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/inputEmailLogin"
         android:layout_width="312dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -46,11 +46,11 @@
         android:background="@drawable/edit_text"/>
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/inputPasswordLogin"
         android:layout_width="312dp"
         android:layout_height="42dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -130,7 +130,7 @@
         android:id="@+id/forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        android:clickable="false"
         android:text="Forgot Password?"
         android:textColor="#000000"
         android:textSize="17sp"

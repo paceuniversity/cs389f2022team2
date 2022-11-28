@@ -2,14 +2,28 @@ package com.example.wellnesswatch;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +36,10 @@ public class StartWorkoutFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    FirebaseAuth fireBaseAuth;
+    FirebaseUser firebaseUser;
+    DatabaseReference reference;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -63,6 +81,23 @@ public class StartWorkoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_start_workout, container, false);
+        TextView welcome  = (TextView) view.findViewById(R.id.welcomeText);
+        fireBaseAuth= FirebaseAuth.getInstance();
+        firebaseUser=fireBaseAuth.getCurrentUser();
+        //welcome.setText(firebaseUser.getUid());
+        reference= FirebaseDatabase.getInstance().getReference();
+
+      /*  reference.child("Users").child(fireBaseAuth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()) {
+                    welcome.setText("Hello, "+task.getResult().getValue(User.class).getFullName());
+                }
+            }
+        });
+
+       */
+
         // Inflate the layout for this fragment
         Button btn = (Button) view.findViewById(R.id.startWorkoutButton);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -76,5 +111,9 @@ public class StartWorkoutFragment extends Fragment {
         return view;
 
     }
+
+
+
+
 
 }

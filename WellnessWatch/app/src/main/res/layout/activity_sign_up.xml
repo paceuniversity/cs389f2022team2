@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.852" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/inputName"
         android:layout_width="312dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -129,7 +129,7 @@
         android:background="@drawable/edit_text"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/inputEmail"
         android:layout_width="312dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -143,11 +143,11 @@
         android:background="@drawable/edit_text"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/inputPhone"
         android:layout_width="312dp"
         android:layout_height="42dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -157,7 +157,7 @@
         android:background="@drawable/edit_text"/>
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/inputConfirmPassword"
         android:layout_width="312dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -171,11 +171,11 @@
         android:background="@drawable/edit_text"/>
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/inputPassword"
         android:layout_width="312dp"
         android:layout_height="42dp"
         android:ems="10"
-        android:inputType="textPhonetic"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
