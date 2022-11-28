@@ -13,4 +13,28 @@
     <string name="recallText">Type workout here</string>
     <string name="recallEnter">Submit</string>
     <string name="workoutListWelcome">See all your logged workouts!</string>
+    <string name="fitness_goal">Fitness goal:</string>
+    <string name="signUpGoalInstructions">Please select your fitness and wellness goals from the choices below to complete your registration.</string>
+    <string name="signUpGoalHeaderText">Almost done!</string>
+    <string name="wellness_goal">Wellness goal:</string>
+    <string name="signUpButton">Sign Up</string>
+    <string name="fitness_goals_dropdown">Fitness Goals Dropdown</string>
+    <string name="wellness_goals_dropdown">Wellness Goals Dropdown</string>
+    <string-array name="fitnessGoals">
+        <item>I want to lose weight.</item>
+        <item>I want to build muscle.</item>
+        <item>I want to get stronger.</item>
+        <item>I want to lose weight.</item>
+        <item>I want to increase my endurance.</item>
+        <item>I want to improve my mobility.</item>
+    </string-array>
+    <string-array name="wellnessGoals">
+        <item>I want to reduce stress.</item>
+        <item>I want to reduce anxiety.</item>
+        <item>I want to eat healthier.</item>
+        <item>I want to get better sleep.</item>
+        <item>I want to improve my positivity.</item>
+        <item>I want to start meditating.</item>
+    </string-array>
+
 </resources>
