@@ -1,12 +1,19 @@
 package com.example.wellnesswatch;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +53,7 @@ public class HistoricalFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +61,41 @@ public class HistoricalFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_historical, container, false);
+        View view = inflater.inflate(R.layout.fragment_historical, container, false);
+        CalendarView calendarView = view.findViewById(R.id.calendarView);
+        TextView textView = view.findViewById(R.id.textView5);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                textView.setText(month+1 + "/" + dayOfMonth + "/" + year);
+            }
+        });
+        Button btn = (Button) view.findViewById(R.id.allWorkoutsButton);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frameLayout, new RecallFragment());
+                fr.commit();
+            }
+        });
+        Button btn2 = (Button) view.findViewById(R.id.recallButton);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frameLayout, new WorkoutListFragment());
+                fr.commit();
+            }
+        });
+
+        return view;
     }
 }
