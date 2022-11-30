@@ -123,7 +123,7 @@ public class WellnessFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog.setMessage("Busy loading rss feed..please wait...");
+            progressDialog.setMessage("Loading articles... please wait");
             progressDialog.show();
         }
 

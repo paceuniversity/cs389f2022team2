@@ -292,9 +292,9 @@ public class WorkoutFragment extends Fragment {
                 //Need to also handle when sets is selected, but the additional field is not entered..
                 if (!amountInput.isEmpty() && exercise!="Select" && typeInput!="Select") {
                     checkAndAddExercise(exercise);
-                    //Decide which constructor to use..
+                    //Decide which constructor to use..lbsInput
                     if(!setAmountInput.isEmpty() && !lbsInput.isEmpty()) {
-                        workoutObject = new WorkoutObject(exercise ,amountInput, typeInput, Integer.parseInt(lbsInput), Integer.parseInt(setAmountInput));
+                        workoutObject = new WorkoutObject(exercise ,amountInput, typeInput, Integer.parseInt(setAmountInput), Integer.parseInt(lbsInput));
                     }else if (!lbsInput.isEmpty()) {
                         workoutObject = new WorkoutObject(exercise ,amountInput, typeInput, Integer.parseInt(lbsInput));
                     }else {
