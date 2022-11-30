@@ -51,17 +51,11 @@ public class SignUpActivity extends AppCompatActivity {
 
         ImageView back = (ImageView) findViewById(R.id.backButton);
         back.setOnClickListener(new View.OnClickListener() {
-            private void sendUserBack() {
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i);
-            }
             @Override
             public void onClick(View v) {
                 sendUserBack();
             }
         });
-
-
 
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +128,11 @@ public class SignUpActivity extends AppCompatActivity {
     private void sendUserToNextActivity() {
         Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+    }
+
+    private void sendUserBack() {
+        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(i);
     }
 
