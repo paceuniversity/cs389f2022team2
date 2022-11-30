@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -79,7 +84,22 @@ public class LoginActivity extends AppCompatActivity {
                     if(task.isSuccessful()) {
                         progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, "Log in successful", Toast.LENGTH_SHORT).show();
-                        sendUserToNextActivity();
+
+
+                        FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).child("setgoals").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.getValue().toString().equals("false")) {
+                                    sendUserToOnboarding();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        sendUserHome();
                     }else{
                         progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
@@ -93,8 +113,13 @@ public class LoginActivity extends AppCompatActivity {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
-    private void sendUserToNextActivity() {
+    private void sendUserHome() {
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+    }
+
+    private void sendUserToOnboarding() {
+        Intent i = new Intent(getApplicationContext(), SignUpGoalsActivity.class);
         startActivity(i);
     }
 

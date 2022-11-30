@@ -79,7 +79,6 @@ public class WorkoutFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_workout, container, false);
 
-
         String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
         TextView date  = (TextView) view.findViewById(R.id.date);
         date.setText(date_n);
@@ -332,8 +331,9 @@ public class WorkoutFragment extends Fragment {
                 if(workout.isEmpty()) {
                     goHome();
                 }else{
-                    displayWorkout.setText(workout.toString());
                     uploadDatatoDB(date_n, "00:00:00", workout, userId);
+                    goHome();
+                    Toast.makeText(getActivity(), "Workout Logged!", Toast.LENGTH_LONG).show();
                 }
             }
         });
