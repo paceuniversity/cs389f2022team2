@@ -331,8 +331,9 @@ public class WorkoutFragment extends Fragment {
                 if(workout.isEmpty()) {
                     goHome();
                 }else{
-                    displayWorkout.setText(workout.toString());
                     uploadDatatoDB(date_n, "00:00:00", workout, userId);
+                    goHome();
+                    Toast.makeText(getActivity(), "Workout Logged!", Toast.LENGTH_LONG).show();
                 }
             }
         });
