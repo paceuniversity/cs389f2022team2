@@ -1,6 +1,8 @@
 package com.example.wellnesswatch;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -81,12 +84,20 @@ public class WellnessFragment extends Fragment {
 
         LvRss = (ListView) view.findViewById(R.id.LvRss);
 
+        titles = new ArrayList<String>();
+        links = new ArrayList<String>();
+
         LvRss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Uri uri = Uri.parse(links.get(position));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+
             }
         });
+        new ProcessInBackground().execute();
         return view;
     }
 
@@ -102,7 +113,7 @@ public class WellnessFragment extends Fragment {
         }
     }
 
-    public class ProcessInBackground extends AsyncTask<Integer, Void, String>
+    public class ProcessInBackground extends AsyncTask<Integer, Void, Exception>
     {
         ProgressDialog progressDialog = new ProgressDialog(getActivity());
 
@@ -112,12 +123,12 @@ public class WellnessFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog.setMessage("Busy loading rss feed..pleas wait...");
+            progressDialog.setMessage("Busy loading rss feed..please wait...");
             progressDialog.show();
         }
 
         @Override
-        protected String doInBackground(Integer... integers) {
+        protected Exception doInBackground(Integer... integers) {
 
             try
             {
@@ -147,10 +158,23 @@ public class WellnessFragment extends Fragment {
                         {
                             if (insideItem)
                             {
-
+                                titles.add(xpp.nextText());
+                            }
+                        }
+                        else if (xpp.getName().equalsIgnoreCase("link"))
+                        {
+                            if (insideItem)
+                            {
+                                links.add(xpp.nextText());
                             }
                         }
                     }
+                    else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item"))
+                    {
+                        insideItem = false;
+                    }
+
+                    eventType = xpp.next();
                 }
 
 
@@ -169,12 +193,17 @@ public class WellnessFragment extends Fragment {
             }
 
 
-            return null;
+            return exception;
         }
 
         @Override
-        protected void onPostExecute(String s) {
+        protected void onPostExecute(Exception s) {
             super.onPostExecute(s);
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, titles);
+
+            LvRss.setAdapter(adapter);
+
 
             progressDialog.dismiss();
         }
