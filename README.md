@@ -1,6 +1,7 @@
 # TEAM 2
 
 ## App name
+**WellnessWatch**
 
 ## Team members
 
@@ -39,8 +40,8 @@
 
 * [Sprint planning](https://docs.google.com/document/d/193Z9FoHCVgegK_vcaLws5VVj_EJRbnFpJTkrOy22Si4/edit)
 * [Scrums](https://docs.google.com/document/d/16VG1LR_IAqyPIm9DqsWA_SpZksDnEmDbXSTpA2Sx0xk/edit)
-* [Sprint demo video]()
-* [Sprint retrospective]()
+* [Sprint demo video](https://www.youtube.com/watch?v=mZeXkvWAKF0)
+* [Sprint retrospective](https://docs.google.com/document/d/1DK_BowmnphBM4Xx4kFCMGiNlJ5NSjvzVqqS-ev4zHdM/edit)
 
 ### Sprint 3
 
