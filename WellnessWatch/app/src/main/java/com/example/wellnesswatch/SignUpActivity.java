@@ -1,6 +1,7 @@
 package com.example.wellnesswatch;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -12,6 +13,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -46,6 +48,20 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+
+        ImageView back = (ImageView) findViewById(R.id.backButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            private void sendUserBack() {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+            @Override
+            public void onClick(View v) {
+                sendUserBack();
+            }
+        });
+
+
 
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
