@@ -1,5 +1,7 @@
 package com.example.wellnesswatch;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +28,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class WellnessFragment extends Fragment {
+
+    ListView LvRss;
+    ArrayList<String> titles;
+    ArrayList<String> links;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +77,106 @@ public class WellnessFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wellness, container, false);
+        View view = inflater.inflate(R.layout.fragment_wellness, container, false);
+
+        LvRss = (ListView) view.findViewById(R.id.LvRss);
+
+        LvRss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+        return view;
+    }
+
+    public InputStream getInputStream(URL url) {
+        try
+        {
+            return url.openConnection().getInputStream();
+        }
+
+        catch (IOException e)
+        {
+            return null;
+        }
+    }
+
+    public class ProcessInBackground extends AsyncTask<Integer, Void, String>
+    {
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+
+        Exception exception = null;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog.setMessage("Busy loading rss feed..pleas wait...");
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(Integer... integers) {
+
+            try
+            {
+                URL url = new URL("https://www.precisionnutrition.com/blog/feed");
+
+                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+
+                factory.setNamespaceAware(false);
+
+                XmlPullParser xpp = factory.newPullParser();
+
+                xpp.setInput(getInputStream(url), "UTF_8");
+
+                boolean insideItem = false;
+
+                int eventType = xpp.getEventType();
+
+                while (eventType != XmlPullParser.END_DOCUMENT)
+                {
+                    if (eventType == XmlPullParser.START_TAG)
+                    {
+                        if (xpp.getName().equalsIgnoreCase("item"))
+                        {
+                            insideItem = true;
+                        }
+                        else if (xpp.getName().equalsIgnoreCase("title"))
+                        {
+                            if (insideItem)
+                            {
+
+                            }
+                        }
+                    }
+                }
+
+
+            }
+            catch (MalformedURLException e)
+            {
+                exception = e;
+            }
+            catch (XmlPullParserException e)
+            {
+                exception = e;
+            }
+            catch (IOException e)
+            {
+                exception = e;
+            }
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            progressDialog.dismiss();
+        }
     }
 }
