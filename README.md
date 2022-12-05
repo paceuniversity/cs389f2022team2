@@ -46,7 +46,7 @@
 ### Sprint 3
 
 * [Sprint planning](https://docs.google.com/document/d/1jocFl7xnbl2atHes_V1yuNn0nZUKBqkR0-5QHQ8FXJU/edit)
-* [Scrums]()
+* [Scrums](https://docs.google.com/document/d/1H8oSgkw8G29iDxYwFeComcvjVKZfVfML0c4qu6-W28Q/edit)
 * [Sprint demo video]()
 * [Sprint retrospective]()
 
