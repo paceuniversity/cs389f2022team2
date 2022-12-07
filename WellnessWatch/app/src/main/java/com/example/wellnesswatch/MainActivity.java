@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.settingsmenu:
                 //Switch to settings activity on click...
                 break;
+
         }
         return true;
 

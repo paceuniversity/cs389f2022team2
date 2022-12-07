@@ -469,6 +469,7 @@ public class WorkoutFragment extends Fragment {
         });
     }
 
+
     private void goHome() {
         Intent i = new Intent(getActivity(), MainActivity.class);
         startActivity(i);

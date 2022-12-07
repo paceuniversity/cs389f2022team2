@@ -78,17 +78,17 @@ public class HistoricalFragment extends Fragment {
                 getDataFromDB(month, dayOfMonth, year);
             }
         });
-        Button btn = (Button) view.findViewById(R.id.allWorkoutsButton);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button exerciseButton = (Button) view.findViewById(R.id.allWorkoutsButton);
+        exerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frameLayout, new RecallFragment());
+                fr.replace(R.id.frameLayout, new WorkoutListFragment());
                 fr.commit();
             }
         });
-        Button btn2 = (Button) view.findViewById(R.id.recallButton);
-        btn2.setOnClickListener(new View.OnClickListener() {
+        Button statsButton = (Button) view.findViewById(R.id.recallButton);
+        statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
