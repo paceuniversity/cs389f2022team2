@@ -31,8 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
-    FirebaseUser mUser;
-
 
 
     @Override
@@ -46,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.loginButton);
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void LogInUser() {
+        //mUser = mAuth.getCurrentUser();
         String email = inputEmail.getText().toString();
         String password = inputPassword.getText().toString();
         if (email.isEmpty() || !isValidEmail(email)) {
@@ -86,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Log in successful", Toast.LENGTH_SHORT).show();
 
 
-                        FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).child("setgoals").addValueEventListener(new ValueEventListener() {
+                        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).child("setgoals").addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.getValue().toString().equals("false")) {
@@ -99,6 +97,8 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                         });
+
+
                         sendUserHome();
                     }else{
                         progressDialog.dismiss();
@@ -107,6 +107,15 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
 
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
     }
     private Boolean isValidEmail(CharSequence target) {
