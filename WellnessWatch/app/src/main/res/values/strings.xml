@@ -23,6 +23,8 @@
     <string name="settingsmenu">Settings</string>
     <string name="aboutusmenu">About Us</string>
     <string name="logoutmenu">Log Out</string>
+    <string name="aboutUsParagraph">WellnessWatch is an app created by Joseph Indriolo, Christopher Arditi and Sanaya Deas with the goal of promoting both physical and mental wellness.</string>
+    <string name="contactUsParagraph">Feel free to contact us at WellnessWatch@gmail.com.</string>
     <string-array name="fitnessGoals">
         <item>I want to lose weight.</item>
         <item>I want to build muscle.</item>

@@ -97,9 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.logoutmenu:
                 Toast.makeText(getApplicationContext(), "You've been logged out!",Toast.LENGTH_LONG).show();
-                //placeholder toast popup, not sure if this will need to be an activity atm
-                //Switch to log out activity on click...
-                //Switch to settings activity on click...
                 LogOut();
                 break;
 
