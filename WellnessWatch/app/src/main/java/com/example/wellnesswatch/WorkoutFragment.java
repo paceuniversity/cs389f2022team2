@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +52,7 @@ public class WorkoutFragment extends Fragment {
     private DatabaseReference mDatabase;
     private FirebaseUser mUser;
     public List<String> eList;
+    public int sec =0;
 
     public WorkoutFragment() {
         // Required empty public constructor
@@ -78,6 +82,7 @@ public class WorkoutFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_workout, container, false);
+        startTimer(view);
 
         String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
         TextView date  = (TextView) view.findViewById(R.id.date);
@@ -91,6 +96,7 @@ public class WorkoutFragment extends Fragment {
         EditText lbs = view.findViewById(R.id.lbsAmount);
         EditText selectWorkoutTxt = view.findViewById(R.id.inputWorkoutText);
         TextView ofText = view.findViewById(R.id.ofText);
+        TextView timerText = view.findViewById(R.id.timerText);
         Button addWorkout = (Button) view.findViewById(R.id.addWorkout);
         Button endWorkout = (Button) view.findViewById(R.id.endWorkout);
         TextView displayWorkout = (TextView) view.findViewById(R.id.displayWorkout);
@@ -331,7 +337,7 @@ public class WorkoutFragment extends Fragment {
                 if(workout.isEmpty()) {
                     goHome();
                 }else{
-                    uploadDatatoDB(date_n, "00:00:00", workout, userId);
+                    uploadDatatoDB(date_n, timerText.getText().toString(), workout, userId);
                     goHome();
                     Toast.makeText(getActivity(), "Workout Logged!", Toast.LENGTH_LONG).show();
                 }
@@ -445,6 +451,24 @@ public class WorkoutFragment extends Fragment {
             }
         });
     }
+
+    private void startTimer(View view) {
+        final TextView timer = view.findViewById(R.id.timerText);
+        final Handler handle = new Handler();
+        handle.post(new Runnable() {
+            @Override
+            public void run() {
+                int hrs = sec / 3600;
+                int mins = (sec % 3600) / 60;
+                int secs = sec % 60;
+                String time_t = String.format(Locale.getDefault(), "    %d:%02d:%02d   ", hrs, mins, secs);
+                timer.setText(time_t);
+                sec++;
+                handle.postDelayed(this, 1000);
+            }
+        });
+    }
+
 
     private void goHome() {
         Intent i = new Intent(getActivity(), MainActivity.class);
