@@ -132,7 +132,7 @@ public class WellnessFragment extends Fragment {
 
             try
             {
-                URL url = new URL("https://rssfeeds.webmd.com/rss/rss.aspx?RSSSource=RSS_PUBLIC");
+                URL url = new URL("https://breakingmuscle.com/feed/rss");
 
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 
