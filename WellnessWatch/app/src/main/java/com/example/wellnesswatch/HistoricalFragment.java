@@ -120,7 +120,7 @@ public class HistoricalFragment extends Fragment {
                     Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
                     Log.wtf("1", map.toString());
 
-                    //Handle if the user did myltiple workouts that day..
+                    //Handle if the user did multiple workouts that day..
                     //Works... probably need to refactor..
                     if(snapshot.getChildrenCount()>1) {
                         int counter=1;

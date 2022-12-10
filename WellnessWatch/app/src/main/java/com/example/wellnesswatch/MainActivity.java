@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.startWorkout);
 
 
-
-
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.history:
@@ -52,10 +50,8 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new WellnessFragment());
                     break;
             }
-
             return true;
         });
-
     }
 
     @Override
