@@ -1,6 +1,7 @@
 # TEAM 2
 
 ## App name
+**WellnessWatch**
 
 ## Team members
 
@@ -32,20 +33,20 @@
 
 * [Sprint planning](https://docs.google.com/document/d/1Eq1ZTaaRqTfoMJ6NEFxzC6Ahb_g3HCPaO3oJ6_6iD8o/edit)
 * [Scrums](https://docs.google.com/document/d/1Epnxpe9ukBIUdBYMKkFbY7Nc5Qub5cjNTT7mHU3I1bY/edit)
-* [Sprint demo video]()
-* [Sprint retrospective]()
+* [Sprint demo video](https://www.youtube.com/watch?v=9zNa1nhTsGk)
+* [Sprint retrospective](https://docs.google.com/document/d/1x5AR94A183_p1jHDKCTZk6GjMaO4MqQ-t7ffmkO9urw/edit)
 
 ### Sprint 2
 
-* [Sprint planning]()
-* [Scrums]()
-* [Sprint demo video]()
-* [Sprint retrospective]()
+* [Sprint planning](https://docs.google.com/document/d/193Z9FoHCVgegK_vcaLws5VVj_EJRbnFpJTkrOy22Si4/edit)
+* [Scrums](https://docs.google.com/document/d/16VG1LR_IAqyPIm9DqsWA_SpZksDnEmDbXSTpA2Sx0xk/edit)
+* [Sprint demo video](https://www.youtube.com/watch?v=mZeXkvWAKF0)
+* [Sprint retrospective](https://docs.google.com/document/d/1DK_BowmnphBM4Xx4kFCMGiNlJ5NSjvzVqqS-ev4zHdM/edit)
 
 ### Sprint 3
 
-* [Sprint planning]()
-* [Scrums]()
+* [Sprint planning](https://docs.google.com/document/d/1jocFl7xnbl2atHes_V1yuNn0nZUKBqkR0-5QHQ8FXJU/edit)
+* [Scrums](https://docs.google.com/document/d/1H8oSgkw8G29iDxYwFeComcvjVKZfVfML0c4qu6-W28Q/edit)
 * [Sprint demo video]()
 * [Sprint retrospective]()
 

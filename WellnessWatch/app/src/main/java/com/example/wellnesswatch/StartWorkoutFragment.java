@@ -1,15 +1,30 @@
 package com.example.wellnesswatch;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,13 +34,14 @@ import android.widget.Button;
 public class StartWorkoutFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private DatabaseReference reference;
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
 
     public StartWorkoutFragment() {
         // Required empty public constructor
@@ -43,35 +59,80 @@ public class StartWorkoutFragment extends Fragment {
     public static StartWorkoutFragment newInstance(String param1, String param2) {
         StartWorkoutFragment fragment = new StartWorkoutFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_start_workout, container, false);
+        TextView welcome  = (TextView) view.findViewById(R.id.welcomeText);
+        mAuth= FirebaseAuth.getInstance();
+        mUser=mAuth.getCurrentUser();
+
+
+
+
+        //welcome.setText(firebaseUser.getUid());
+        reference= FirebaseDatabase.getInstance().getReference();
+
+      /*  reference.child("Users").child(fireBaseAuth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()) {
+                    welcome.setText("Hello, "+task.getResult().getValue(User.class).getFullName());
+                }
+            }
+        });
+
+       */
+
         // Inflate the layout for this fragment
         Button btn = (Button) view.findViewById(R.id.startWorkoutButton);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                //Method that will be used to change users email address..
+
+                /*
+                mUser.updateEmail("newemail@gmail.com").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Log.wtf("EMAIL","ChangedEmail");
+                            //Need to also update the value in the db...
+                            FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).child("email").setValue("newemail@gmail.com");
+                        }
+                    }
+                });
+
+                 */
+
+
+
+                //Method that will be used to change users password..
+/*
+                mUser.updatePassword("1234567").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Log.wtf("EMAIL","ChangedPass");
+                            LogOut();
+                        }
+                    }
+                });
+ */
+
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.frameLayout, new WorkoutFragment());
                 fr.commit();
-
             }
         });
         return view;

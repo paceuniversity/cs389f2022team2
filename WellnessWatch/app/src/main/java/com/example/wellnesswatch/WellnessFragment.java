@@ -6,14 +6,24 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -24,6 +34,8 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,60 +45,54 @@ import java.util.ArrayList;
 public class WellnessFragment extends Fragment {
 
     ListView LvRss;
+    TextView userName, wellnessGoal,fitnessGoal,greetingText;
     ArrayList<String> titles;
     ArrayList<String> links;
+    FirebaseAuth mAuth;
+    String IS_WORKING;
+    boolean isEditing = false;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
 
     public WellnessFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment WellnessFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static WellnessFragment newInstance(String param1, String param2) {
         WellnessFragment fragment = new WellnessFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
+
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_wellness, container, false);
+        //userName = (TextView) view.findViewById(R.id.userName);
+        fitnessGoal = (TextView) view.findViewById(R.id.fitnessGoal);
+        wellnessGoal= (TextView) view.findViewById(R.id.wellnessGoal);
+        greetingText= (TextView) view.findViewById(R.id.greetingText);
+        isEditing=true;
+
+        mAuth = FirebaseAuth.getInstance();
+        setUserData();
+
 
         LvRss = (ListView) view.findViewById(R.id.LvRss);
-
         titles = new ArrayList<String>();
         links = new ArrayList<String>();
-
         LvRss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -123,7 +129,7 @@ public class WellnessFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog.setMessage("Busy loading rss feed..please wait...");
+            progressDialog.setMessage("Loading articles... please wait");
             progressDialog.show();
         }
 
@@ -132,7 +138,7 @@ public class WellnessFragment extends Fragment {
 
             try
             {
-                URL url = new URL("https://www.precisionnutrition.com/blog/feed");
+                URL url = new URL("https://breakingmuscle.com/feed/rss");
 
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 
@@ -208,4 +214,42 @@ public class WellnessFragment extends Fragment {
             progressDialog.dismiss();
         }
     }
+
+    public void setUserData() {
+        StringBuilder sb = new StringBuilder();
+        Date dt = new Date();
+        int hours = dt.getHours();
+        if(hours>=1 && hours<=12){
+            sb.append("Good Morning,");
+        }else if(hours>=12 && hours<=16){
+            sb.append("Good Afternoon,");
+        }else if(hours>=16 && hours<=21){
+           sb.append("Good Evening,");
+        }else if(hours>=21 && hours<=24){
+            sb.append("Good Night,");
+        }
+
+        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+                    Map<String, Object> userData = (Map<String, Object>) snapshot.getValue();
+                    String name[]  = userData.get("fullName").toString().split(" ");
+                    sb.append(" "+name[0]);
+                    fitnessGoal.setText(userData.get("fitnessgoal").toString());
+                    wellnessGoal.setText(userData.get("wellnessgoal").toString());
+                }
+                greetingText.setText(sb.toString());
+            }
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 }
