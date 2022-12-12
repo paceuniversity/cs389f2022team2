@@ -126,7 +126,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity() {
-        Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
+        Intent i = new Intent(SignUpActivity.this, SignUpGoalsActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
@@ -139,7 +139,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void initExerciseList() {
         Log.wtf("init", "init");
         List<String> defaultList = Arrays.asList("Select", "Add New");
-        FirebaseDatabase.getInstance().getReference().child("Exercises").child(mUser.getUid()).child("ExerciseList").setValue(defaultList).addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseDatabase.getInstance().getReference().child("Exercises").child(FirebaseAuth.getInstance().getUid()).child("ExerciseList").setValue(defaultList).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.wtf("init", "init2");
@@ -150,7 +150,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void setGoalsState() {
-        FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).child("setgoals").setValue("false").addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).child("setgoals").setValue("false").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.wtf("init", "init2");
