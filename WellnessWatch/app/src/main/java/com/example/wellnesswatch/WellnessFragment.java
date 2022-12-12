@@ -219,13 +219,13 @@ public class WellnessFragment extends Fragment {
         StringBuilder sb = new StringBuilder();
         Date dt = new Date();
         int hours = dt.getHours();
-        if(hours>=1 || hours<=12){
+        if(hours>=1 && hours<=12){
             sb.append("Good Morning,");
-        }else if(hours>=12 || hours<=16){
+        }else if(hours>=12 && hours<=16){
             sb.append("Good Afternoon,");
-        }else if(hours>=16 || hours<=21){
+        }else if(hours>=16 && hours<=21){
            sb.append("Good Evening,");
-        }else if(hours>=21 || hours<=24){
+        }else if(hours>=21 && hours<=24){
             sb.append("Good Night,");
         }
 
