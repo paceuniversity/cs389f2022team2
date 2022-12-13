@@ -77,14 +77,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch(id) {
             case R.id.settingsmenu:
-                Button settings = (Button) findViewById(R.id.settingsmenu);
-                settings.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
                         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                    }
-                });
-
                 break;
             case R.id.aboutusmenu:
                 Button about = (Button) findViewById(R.id.aboutusmenu);
