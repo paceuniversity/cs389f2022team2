@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.wellnesswatch.databinding.ActivityMainBinding;
@@ -74,7 +73,19 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch(id) {
             case R.id.settingsmenu:
-                //Switch to settings activity on click...
+                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                break;
+            case R.id.aboutusmenu:
+                Button about = (Button) findViewById(R.id.aboutusmenu);
+                about.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
+                    }
+                });
+                break;
+            case R.id.logoutmenu:
+                Toast.makeText(getApplicationContext(), "You've been logged out!",Toast.LENGTH_LONG).show();
                 LogOut();
                 break;
 
