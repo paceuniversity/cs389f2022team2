@@ -1,5 +1,7 @@
 package com.example.wellnesswatch;
 
+import android.util.Log;
+
 public class WorkoutObject {
     private String exercise;
     private String amount;
@@ -17,12 +19,19 @@ public class WorkoutObject {
         this.type=type;
     }
 
-    public WorkoutObject(String exercise, String amount, String type, int lbs) {
+    public WorkoutObject(String exercise, String amount, String type, int lbsOrRep, String diff) {
         this.exercise=exercise;
         this.amount=amount;
         this.type=type;
-        this.lbs=lbs;
+        //WIll check if lbs or rep amount is being passed in, and handle accordingly
+        if(diff.equals("lbs")) {
+            this.lbs=lbsOrRep;
+        }else{
+            this.repAmount=lbsOrRep;
+        }
+
     }
+
 
     public WorkoutObject(String exercise, String amount, String type, int repAmount, int lbs) {
         this.exercise=exercise;
@@ -37,8 +46,8 @@ public class WorkoutObject {
         StringBuilder sb = new StringBuilder();
         sb.append(this.exercise + " - "+ this.amount + " "+this.type);
         if(this.repAmount!= 0)
-            sb.append(" of "+this.repAmount+" - "+this.lbs+" lbs");
-        else if(this.lbs != 0) {
+            sb.append(" of "+this.repAmount);
+         if(this.lbs != 0) {
             sb.append(" "+this.lbs+ " lbs");
         }
         return sb.toString();

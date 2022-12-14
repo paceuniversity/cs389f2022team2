@@ -83,7 +83,7 @@ public class ManageCredentialsActivity extends AppCompatActivity {
         Log.wtf("pas", newPassword);
         if(!newPassword.equals(confirmPassword) && !newEmail.isEmpty()) {
             confirmNewPassword.setError("Your password does not match.");
-        }else if(newPassword.length()<6){
+        }else if(newPassword.length()<6 && !newPassword.isEmpty()){
             inputNewPassword.setError("Please enter a valid password.");
         }else{
             mUser.updatePassword(confirmPassword).addOnCompleteListener(new OnCompleteListener<Void>() {

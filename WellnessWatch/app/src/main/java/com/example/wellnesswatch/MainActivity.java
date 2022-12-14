@@ -73,16 +73,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch(id) {
             case R.id.settingsmenu:
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 break;
             case R.id.aboutusmenu:
-                Button about = (Button) findViewById(R.id.aboutusmenu);
-                about.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
-                    }
-                });
+                startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
                 break;
             case R.id.logoutmenu:
                 Toast.makeText(getApplicationContext(), "You've been logged out!",Toast.LENGTH_LONG).show();

@@ -55,6 +55,7 @@ public class WorkoutListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_workout_list, container, false);
 
+
         displayExercises = view.findViewById(R.id.displayExercises);
         eList= new ArrayList<>();
         setExerciseList();
