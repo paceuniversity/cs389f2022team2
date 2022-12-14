@@ -255,6 +255,7 @@ public class WellnessFragment extends Fragment {
         });
 
     }
+    
 
     public void getRssFeed(String goal) {
         if(goal.contains("healthier")) {
