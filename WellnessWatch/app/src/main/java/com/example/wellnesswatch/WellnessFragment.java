@@ -267,14 +267,13 @@ public class WellnessFragment extends Fragment {
             rssFeed = "https://anxiouslass.com/feed/";
         }
         else if (goal.contains("better sleep")) {
-            rssFeed = "https://anxiouslass.com/feed/";
+            rssFeed = "https://sleepeducation.org/feed/";
         }
         else if (goal.contains("positivity")) {
-            rssFeed = "https://anxiouslass.com/feed/";
+            rssFeed = "https://www.positivepsychologyindia.org/feeds/posts/default?alt=rss";
         }
         else if (goal.contains("meditating")) {
-            rssFeed = "https://anxiouslass.com/feed/";
+            rssFeed = "https://www.tm.org/blog/feed/";
         }
     }
-
 }
