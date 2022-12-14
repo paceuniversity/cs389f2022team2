@@ -52,7 +52,6 @@ public class ManageCredentialsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeCredentials();
-                Toast.makeText(getApplicationContext(), "Updated Credentials.", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -62,6 +61,7 @@ public class ManageCredentialsActivity extends AppCompatActivity {
         String newPassword = inputNewPassword.getText().toString();
         String confirmPassword = confirmNewPassword.getText().toString();
 
+       /*
         Log.wtf("pas", newEmail);
         if(!newEmail.isEmpty() && isValidEmail(newEmail)) {
             mUser.updateEmail(newEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -74,14 +74,16 @@ public class ManageCredentialsActivity extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).child("email").setValue(newEmail);
                     }else{
                         Log.wtf("F",task.getException().toString());
+                        Toast.makeText(getApplicationContext(), "Updated Info", Toast.LENGTH_LONG);
                     }
                 }
             });
         }
 
+        */
 
         Log.wtf("pas", newPassword);
-        if(!newPassword.equals(confirmPassword) && !newEmail.isEmpty()) {
+        if(!newPassword.equals(confirmPassword)) {
             confirmNewPassword.setError("Your password does not match.");
         }else if(newPassword.length()<6 && !newPassword.isEmpty()){
             inputNewPassword.setError("Please enter a valid password.");
@@ -91,7 +93,10 @@ public class ManageCredentialsActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()) {
                         Log.wtf("EMAIL","ChangedPass");
+                        Toast.makeText(getApplicationContext(), "Updated Info", Toast.LENGTH_LONG);
                         LogOut();
+                    }else{
+                        Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG);
                     }
                 }
             });
