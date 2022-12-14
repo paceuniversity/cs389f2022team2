@@ -251,5 +251,6 @@ public class WellnessFragment extends Fragment {
         });
 
     }
+    
 
 }
