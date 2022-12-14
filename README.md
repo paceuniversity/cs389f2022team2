@@ -47,8 +47,8 @@
 
 * [Sprint planning](https://docs.google.com/document/d/1jocFl7xnbl2atHes_V1yuNn0nZUKBqkR0-5QHQ8FXJU/edit)
 * [Scrums](https://docs.google.com/document/d/1H8oSgkw8G29iDxYwFeComcvjVKZfVfML0c4qu6-W28Q/edit)
-* [Sprint demo video]()
-* [Sprint retrospective]()
+* [Sprint demo video](https://www.youtube.com/watch?v=8QcLssmtPpI)
+* [Sprint retrospective](https://docs.google.com/document/d/1lEhcIcOlUrMDRl4qHNZ56pwJgKbsWHXcNrMz5jE1hJU/edit)
 
 ## Tools & APIs
 <a href="https://discord.com"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/625e5fcef7ab80b8c1fe559e_Discord-Logo-Color.png"  width="50" height="50"> <a href="https://developer.android.com/studio"><img src="https://1.bp.blogspot.com/-LgTa-xDiknI/X4EflN56boI/AAAAAAAAPuk/24YyKnqiGkwRS9-_9suPKkfsAwO4wHYEgCLcBGAsYHQ/s0/image9.png"  width="50" height="50"> <a href="https://www.google.com/drive/"><img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Drive.max-1100x1100.png"  width="50" height="50"> <a href="https://github.com"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"  width="50" height="50">
