@@ -258,9 +258,22 @@ public class WellnessFragment extends Fragment {
 
     public void getRssFeed(String goal) {
         if(goal.contains("healthier")) {
-            rssFeed= "https://www.skinnytaste.com/feed/";
-        }else if (goal.contains("stress")) {
-            rssFeed= "https://www.stress.org/feed";
+            rssFeed = "https://www.skinnytaste.com/feed/";
+        }
+        else if (goal.contains("stress")) {
+            rssFeed = "https://www.stress.org/feed";
+        }
+        else if (goal.contains("anxiety")) {
+            rssFeed = "https://anxiouslass.com/feed/";
+        }
+        else if (goal.contains("better sleep")) {
+            rssFeed = "https://anxiouslass.com/feed/";
+        }
+        else if (goal.contains("positivity")) {
+            rssFeed = "https://anxiouslass.com/feed/";
+        }
+        else if (goal.contains("meditating")) {
+            rssFeed = "https://anxiouslass.com/feed/";
         }
     }
 
