@@ -51,6 +51,7 @@ public class WellnessFragment extends Fragment {
     FirebaseAuth mAuth;
     String IS_WORKING;
     boolean isEditing = false;
+    String rssFeed;
 
 
 
@@ -68,7 +69,11 @@ public class WellnessFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
+
+
 
 
 
@@ -96,14 +101,11 @@ public class WellnessFragment extends Fragment {
         LvRss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 Uri uri = Uri.parse(links.get(position));
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
-
             }
         });
-        new ProcessInBackground().execute();
         return view;
     }
 
@@ -138,7 +140,8 @@ public class WellnessFragment extends Fragment {
 
             try
             {
-                URL url = new URL("https://breakingmuscle.com/feed/rss");
+                Log.wtf("feed",rssFeed);
+                URL url = new URL(rssFeed);
 
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 
@@ -219,7 +222,7 @@ public class WellnessFragment extends Fragment {
         StringBuilder sb = new StringBuilder();
         Date dt = new Date();
         int hours = dt.getHours();
-        if(hours>=1 && hours<=12){
+        if(hours>=0 && hours<=12){
             sb.append("Good Morning,");
         }else if(hours>=12 && hours<=16){
             sb.append("Good Afternoon,");
@@ -238,10 +241,11 @@ public class WellnessFragment extends Fragment {
                     sb.append(" "+name[0]);
                     fitnessGoal.setText(userData.get("fitnessgoal").toString());
                     wellnessGoal.setText(userData.get("wellnessgoal").toString());
+                    getRssFeed(userData.get("wellnessgoal").toString());
                 }
+                new ProcessInBackground().execute();
                 greetingText.setText(sb.toString());
             }
-
 
 
             @Override
@@ -250,6 +254,14 @@ public class WellnessFragment extends Fragment {
             }
         });
 
+    }
+
+    public void getRssFeed(String goal) {
+        if(goal.contains("healthier")) {
+            rssFeed= "https://www.skinnytaste.com/feed/";
+        }else if (goal.contains("stress")) {
+            rssFeed= "https://www.stress.org/feed";
+        }
     }
 
 }
