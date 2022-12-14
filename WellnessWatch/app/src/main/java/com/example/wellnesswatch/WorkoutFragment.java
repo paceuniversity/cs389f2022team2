@@ -294,6 +294,8 @@ public class WorkoutFragment extends Fragment {
                 String typeInput = selectType.getSelectedItem().toString();
                 String lbsInput = lbs.getText().toString();
                 String setAmountInput = setsText.getText().toString();
+                Log.wtf("reps",setAmountInput);
+                Log.wtf("lbs",lbsInput);
                 WorkoutObject workoutObject;
                 //Need to also handle when sets is selected, but the additional field is not entered..
                 if (!amountInput.isEmpty() && exercise!="Select" && typeInput!="Select") {
@@ -301,9 +303,11 @@ public class WorkoutFragment extends Fragment {
                     //Decide which constructor to use..lbsInput
                     if(!setAmountInput.isEmpty() && !lbsInput.isEmpty()) {
                         workoutObject = new WorkoutObject(exercise ,amountInput, typeInput, Integer.parseInt(setAmountInput), Integer.parseInt(lbsInput));
+                    }else if (!setAmountInput.isEmpty() && lbsInput.isEmpty()) {
+                        workoutObject = new WorkoutObject(exercise ,amountInput, typeInput, Integer.parseInt(setAmountInput), "rep");
                     }else if (!lbsInput.isEmpty()) {
-                        workoutObject = new WorkoutObject(exercise ,amountInput, typeInput, Integer.parseInt(lbsInput));
-                    }else {
+                        workoutObject = new WorkoutObject(exercise ,amountInput, typeInput, Integer.parseInt(lbsInput), "lbs");
+                    }else{
                         workoutObject = new WorkoutObject(exercise ,amountInput, typeInput);
                     }
                     workout.add(workoutObject);
