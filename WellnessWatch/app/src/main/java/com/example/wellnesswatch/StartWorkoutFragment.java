@@ -97,39 +97,6 @@ public class StartWorkoutFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                //Method that will be used to change users email address..
-
-                /*
-                mUser.updateEmail("newemail@gmail.com").addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()) {
-                            Log.wtf("EMAIL","ChangedEmail");
-                            //Need to also update the value in the db...
-                            FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).child("email").setValue("newemail@gmail.com");
-                        }
-                    }
-                });
-
-                 */
-
-
-
-                //Method that will be used to change users password..
-/*
-                mUser.updatePassword("1234567").addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()) {
-                            Log.wtf("EMAIL","ChangedPass");
-                            LogOut();
-                        }
-                    }
-                });
- */
-
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.frameLayout, new WorkoutFragment());
                 fr.commit();

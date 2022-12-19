@@ -365,37 +365,8 @@ public class WorkoutFragment extends Fragment {
     }
 
 
-
-//This is how the data will be read then parsed from the db.
-/*
-    public void getDataFromDB() {
-        mDatabase= FirebaseDatabase.getInstance().getReference("Workouts");
-        mDatabase.child(mUser.getUid()).child("Nov 18, 2022").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()) {
-                    Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
-                    Log.d("DURATION", map.toString());
-                    Set<String> keys = map.keySet();
-                    Log.wtf("keyset", keys.toString());
-
-                    for(String key : map.keySet()) {
-                        String a = ((Map)map.get(key)).get("workout").toString();
-                        Log.wtf("MAP",a);
-                    }
-
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
- */
-
     private void checkAndAddExercise(String exercise) {
-        Log.wtf("STARR","STARTT");
+        Log.wtf("START","START");
         mDatabase.child("Exercises").child(mUser.getUid()).child("ExerciseList").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -437,18 +408,7 @@ public class WorkoutFragment extends Fragment {
                     }
                 }
             }
-/*
-            public void setExerciseList() {
-                mDatabase.child("Exercises").child(mUser.getUid()).child("ExerciseList").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            eList = (ArrayList<String>) snapshot.getValue();
-                            Log.wtf("theList",eList.toString());
-                        }
-                    }
 
- */
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

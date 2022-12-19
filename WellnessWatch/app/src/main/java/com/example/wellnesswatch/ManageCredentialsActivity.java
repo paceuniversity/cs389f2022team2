@@ -61,6 +61,7 @@ public class ManageCredentialsActivity extends AppCompatActivity {
         String newPassword = inputNewPassword.getText().toString();
         String confirmPassword = confirmNewPassword.getText().toString();
 
+        //Update email..
        /*
         Log.wtf("pas", newEmail);
         if(!newEmail.isEmpty() && isValidEmail(newEmail)) {
@@ -85,9 +86,10 @@ public class ManageCredentialsActivity extends AppCompatActivity {
         Log.wtf("pas", newPassword);
         if(!newPassword.equals(confirmPassword)) {
             confirmNewPassword.setError("Your password does not match.");
-        }else if(newPassword.length()<6 && !newPassword.isEmpty()){
+        }else if(newPassword.isEmpty() || newPassword.length()<6){
             inputNewPassword.setError("Please enter a valid password.");
         }else{
+            Log.wtf("RUN","runn");
             mUser.updatePassword(confirmPassword).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
@@ -96,6 +98,7 @@ public class ManageCredentialsActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Updated Info", Toast.LENGTH_LONG);
                         LogOut();
                     }else{
+                        Log.wtf("ERR",task.getException().toString());
                         Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG);
                     }
                 }
