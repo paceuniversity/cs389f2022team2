@@ -81,7 +81,7 @@ public class SettingsActivity extends AppCompatActivity {
         confirmDeletion.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Your account has not been deleted.", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Your account has not been deleted.", Toast.LENGTH_LONG).show();
             }
         });
         AlertDialog confirmDeletionAlert = confirmDeletion.create();
