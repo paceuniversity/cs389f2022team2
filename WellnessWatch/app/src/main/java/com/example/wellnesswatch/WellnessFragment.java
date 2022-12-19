@@ -75,10 +75,6 @@ public class WellnessFragment extends Fragment {
 
 
 
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -142,19 +138,12 @@ public class WellnessFragment extends Fragment {
             {
                 Log.wtf("feed",rssFeed);
                 URL url = new URL(rssFeed);
-
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-
                 factory.setNamespaceAware(false);
-
                 XmlPullParser xpp = factory.newPullParser();
-
                 xpp.setInput(getInputStream(url), "UTF_8");
-
                 boolean insideItem = false;
-
                 int eventType = xpp.getEventType();
-
                 while (eventType != XmlPullParser.END_DOCUMENT)
                 {
                     if (eventType == XmlPullParser.START_TAG)

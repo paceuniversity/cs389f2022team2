@@ -73,6 +73,7 @@ public class SettingsActivity extends AppCompatActivity {
         confirmDeletion.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
                 deleteUser();
                 Toast.makeText(getApplicationContext(), "Your account has been deleted.", Toast.LENGTH_LONG).show();
             }
@@ -92,9 +93,10 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 LogOut();
-                FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).removeValue();
-                FirebaseDatabase.getInstance().getReference().child("Exercises").child(mUser.getUid()).removeValue();
-                FirebaseDatabase.getInstance().getReference().child("Workouts").child(mUser.getUid()).removeValue();
+                //This is needed to delete the users data from the table. Disabled for now for deletion to work correctly.
+                //FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid()).removeValue();
+                //FirebaseDatabase.getInstance().getReference().child("Exercises").child(mUser.getUid()).removeValue();
+                //FirebaseDatabase.getInstance().getReference().child("Workouts").child(mUser.getUid()).removeValue();
             }
         });
     }
