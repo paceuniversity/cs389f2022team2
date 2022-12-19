@@ -12,6 +12,7 @@
 | Sanaya Deas | [sd12621p@pace.edu](mailto:sd12621p@pace.edu) |
 
 ## App description
+WellnessWatch is an Android app focused on helping you keep track of your general wellness and reach your wellness goals. Keep your wellness in order by logging workouts and looking back on them as needed. See your physical fitness progress overtime and recieve detailed statistics about your exercises. Set wellness goals and recieve personalized tips and articles to help you reach your goals. We keep track, so you don't have to.
 
 ## Idea Proposal
 [Idea Proposal](https://docs.google.com/document/d/1RJpak0_xiD12JvmdOQvHuDH2pRyLRTa5szIZDKma4Ro/edit)
@@ -50,13 +51,18 @@
 * [Sprint demo video](https://www.youtube.com/watch?v=8QcLssmtPpI)
 * [Sprint retrospective](https://docs.google.com/document/d/1lEhcIcOlUrMDRl4qHNZ56pwJgKbsWHXcNrMz5jE1hJU/edit)
 
-## Tools & APIs
-<a href="https://discord.com"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/625e5fcef7ab80b8c1fe559e_Discord-Logo-Color.png"  width="50" height="50"> <a href="https://developer.android.com/studio"><img src="https://1.bp.blogspot.com/-LgTa-xDiknI/X4EflN56boI/AAAAAAAAPuk/24YyKnqiGkwRS9-_9suPKkfsAwO4wHYEgCLcBGAsYHQ/s0/image9.png"  width="50" height="50"> <a href="https://www.google.com/drive/"><img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Drive.max-1100x1100.png"  width="50" height="50"> <a href="https://github.com"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"  width="50" height="50"> <a href="https://logos-world.net/wp-content/uploads/2022/07/Java-Logo.png"><img src="https://logos-world.net/wp-content/uploads/2022/07/Java-Logo.png"  width="55" height="50"> <a href="https://1000logos.net/wp-content/uploads/2021/06/Zoom-emblem.png"><img src="https://1000logos.net/wp-content/uploads/2021/06/Zoom-emblem.png"  width="55" height="50"> <a href="https://ih1.redbubble.net/image.489553250.2202/poster,504x498,f8f8f8-pad,600x600,f8f8f8.u1.jpg"><img src="https://ih1.redbubble.net/image.489553250.2202/poster,504x498,f8f8f8-pad,600x600,f8f8f8.u1.jpg"  width="50" height="50"> <a href="https://1000logos.net/wp-content/uploads/2017/05/Color-YouTube-logo.jpg"><img src="https://1000logos.net/wp-content/uploads/2017/05/Color-YouTube-logo.jpg"  width="55" height="50"> <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVjA257mJp8ZGGx-P6a7CxC5Wg0aU-bUK1vQBuCePhdjtieFAPX36duqepZI0GdJLkI1w&usqp=CAU"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVjA257mJp8ZGGx-P6a7CxC5Wg0aU-bUK1vQBuCePhdjtieFAPX36duqepZI0GdJLkI1w&usqp=CAU"  width="50" height="50">
+
+
 
 ## Final delivery
 
-* [Final presentation]()
-* [Poster]()
-* [Process description]()
+* [Final presentation](https://docs.google.com/presentation/d/1ip1Q4TRwriHZmPZENwJjwtD_q3hwLX6j2GUfjrZN0vg/edit?usp=sharing)
+* [Demo]()
+
+## Poster
+<a href="https://discord.com"><img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gO--y05rCTAOV-hzJM6bGcPvrD01yy0uHCD3LMDwO00YM8gd3hWw7r8VrQ-uL1K4ZV-ubW9sBdFzKXUDHrOjTufTzg3nQ=w1960-h2612"  width="400" height="500"> <a href="https://developer.android.com/studio">
+
+## Tools & APIs
+<a href="https://discord.com"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/625e5fcef7ab80b8c1fe559e_Discord-Logo-Color.png"  width="50" height="50"> <a href="https://developer.android.com/studio"><img src="https://1.bp.blogspot.com/-LgTa-xDiknI/X4EflN56boI/AAAAAAAAPuk/24YyKnqiGkwRS9-_9suPKkfsAwO4wHYEgCLcBGAsYHQ/s0/image9.png"  width="50" height="50"> <a href="https://www.google.com/drive/"><img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Drive.max-1100x1100.png"  width="50" height="50"> <a href="https://github.com"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"  width="50" height="50"> <a href="https://firebase.google.com"><img src="https://cdn.freebiesupply.com/logos/thumbs/2x/firebase-1-logo.png"  width="70" height="50">  <a href="https://blog.feedspot.com/?_src=logo"><img src="https://wp-assets.rss.com/blog/wp-content/uploads/2019/10/10111557/social_style_3_rss-512-1.png"  width="50" height="50"> <a href="https://www.figma.com"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"  width="50" height="50"> <a href="https://www.autodesk.com"><img src="https://logos-world.net/wp-content/uploads/2020/12/Autocad-Logo.png"  width="60" height="50"> <a href="https://firebase.google.com/docs/database"><img src="https://4.bp.blogspot.com/-I6KBH1NIJGk/XIccojn6YII/AAAAAAAADZ8/BeJ6uuutN5YoQe6Zboig_q5djnXS3hVpgCLcBGAs/s1600/Firebase%2BRealtime%2BDatabase%2B%25281-%2BIcon%252C%2BLight%2529.png"  width="50" height="50">  <a href="https://www.youtube.com"><img src="https://www.bishopmanogue.org/wp-content/uploads/2020/09/create-your-youtube-channel-art-and-logo.png"  width="50" height="50"> <a href="https://zoom.us"><img src="https://play-lh.googleusercontent.com/V1lb4J811SNh6hlGqNlDnGZXfdtI2i-1dC7_i9TnViyiboZ2RHp8xbhKbbECG-f26is"  width="50" height="50">
 
 
