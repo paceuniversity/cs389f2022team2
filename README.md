@@ -57,7 +57,7 @@ WellnessWatch is an Android app focused on helping you keep track of your genera
 ## Final delivery
 
 * [Final presentation](https://docs.google.com/presentation/d/1ip1Q4TRwriHZmPZENwJjwtD_q3hwLX6j2GUfjrZN0vg/edit?usp=sharing)
-* [Demo]()
+* [Demo](https://youtu.be/8jOYiFWigro)
 
 ## Poster
 <a href="https://discord.com"><img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFDK6gO--y05rCTAOV-hzJM6bGcPvrD01yy0uHCD3LMDwO00YM8gd3hWw7r8VrQ-uL1K4ZV-ubW9sBdFzKXUDHrOjTufTzg3nQ=w1960-h2612"  width="400" height="500"> <a href="https://developer.android.com/studio">
